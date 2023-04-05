@@ -87,7 +87,7 @@ function CoinsTable() {
                                             fontFamily: 'Montserrat'
                                         }}
                                         key={head}
-                                        align={head === 'Coin' ? '' : 'right'}
+                                        align={head === 'Coin' ? '' : 'center'}
                                     >
                                         {head}
                                     </TableCell>
@@ -133,12 +133,12 @@ function CoinsTable() {
                                             <span style={{ color: 'darkgrey' }}>{row.name}</span>
                                         </div>
                                     </TableCell>
-                                    <TableCell align='right'>
+                                    <TableCell align='center'>
                                         {symbol}{' '}
                                         {numberWithCommas(row.current_price.toFixed(2))}
                                     </TableCell>
                                     <TableCell
-                                        align='right'
+                                        align='center'
                                         style={{
                                             color: profit > 0 ?'rgb(14,203,129' : 'red',
                                             fontWeight:500,
@@ -148,10 +148,10 @@ function CoinsTable() {
                                         {row.price_change_percentage_24h.toFixed(2)}%
                                     </TableCell>
 
-                                    <TableCell align='right'>
+                                    <TableCell align='center'>
                                         {symbol}{' '}
-                                        {numberWithCommas(row.market_cap.toString().slice(0, -6))}
-                                        M
+                                        {currency === 'VND' ? `${numberWithCommas(row.market_cap.toString().slice(0, -9))}B` : `${numberWithCommas(row.market_cap.toString().slice(0, -6))}M`}
+                                    
                                     </TableCell>
 
                                 </TableRow>

@@ -137,7 +137,7 @@ function CoinPage() {
               variant='h5'
               className={classes.heading}  
             >
-              Rank:
+              Market Capital:
             </Typography>
             &nbsp; &nbsp;
             <Typography
@@ -146,8 +146,8 @@ function CoinPage() {
                 fontFamily:'Montserrat',
               }}
             >
-              {symbol}{' '}{numberWithCommas(coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0,-6))}
-              M
+              {symbol}{' '}{currency === 'VND' ? `${numberWithCommas(coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0,-9))}B` : `${numberWithCommas(coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0,-6))}M`}
+              
             </Typography>
           </span>
         </div>
